@@ -1,0 +1,369 @@
+ul,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: 'Open Sans';
+    font-size: 14px;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.netflix-slider h2 {
+    color: rgb(226, 222, 0);
+    margin-top: 20px;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    font-size: 16px;
+    background: transparent;
+    display: flex;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: red;
+    text-align: center;
+}
+
+:root {
+    --swiper-theme-color: #fff;
+}
+
+.netflix-slider .swiper-wrapper {
+    padding: 30px 0;
+}
+
+.netflix-slider .swiper-slide {
+    -webkit-transition: 250ms all;
+    transition: 250ms all;
+}
+
+.netflix-slider .swiper-slide:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    z-index: 1;
+}
+
+.netflix-slider .swiper-slide:hover .video_content {
+    display: block;
+}
+
+.netflix-slider .swiper-slide:hover img {
+    display: none;
+}
+
+.netflix-slider .swiper-slide:hover .video {
+    display: block;
+}
+
+.video {
+    display: none;
+    width: 100%;
+    height: 170px;
+}
+
+.netflix-slider .swiper-slide:first-child:hover {
+    margin: 0 0px;
+}
+
+.netflix-slider .swiper-slide:last-child:hover {
+    margin: 0 0px;
+}
+
+.netflix-slider .swiper-slide {
+    position: relative;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    border: 1px solid #fff;
+    border-radius: 100%;
+}
+
+.circle:hover i {
+    color: red;
+}
+
+.circle i {
+    position: absolute;
+    left: 60%;
+    color: fff;
+    font-size: 12px;
+    top: 50%;
+    transform: translate(-60%, -50%);
+}
+
+.video_content {
+    display: none;
+    position: absolute;
+    top: 0;
+    bottom: 30px;
+    left: 50px;
+    right: 0;
+    background: transparent;
+    z-index: 100000000000000;
+}
+
+.left_con {
+    left: 10px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.vid_name {
+    font-size: 12px;
+}
+
+.vid_list {
+    list-style: none;
+    margin-top: -9px;
+}
+
+.vid_list li {
+    display: inline-block;
+    font-size: 8px;
+}
+
+.br_round {
+    border: 1px solid #f2f2f2;
+    padding-left: 3px;
+    padding-right: 3px;
+    line-height: 10px;
+}
+
+.c_green {
+    color: rgba(0, 153, 0, 1);
+    font-weight: 600;
+}
+
+.down_arrow {
+    font-size: 12px;
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    bottom: 20px;
+    z-index: 1000000000000000000000000;
+}
+
+.right_con {
+    right: 20px;
+    bottom: 20px;
+    position: fixed;
+}
+
+<!--Video Detail CSS-->.detail_container {
+    width: 100%;
+    height: 200px;
+    background: black;
+    padding: 0px;
+    background: black;
+}
+
+#d_container {
+    display: none;
+    margin-top: -50px;
+}
+
+.detail_left {
+    float: left;
+    width: 40%;
+    height: 250px;
+    background: black;
+}
+
+.left_detail_container {
+    padding-left: 50px;
+    padding-top: 0px;
+}
+
+.other_detail ul {
+    margin-bottom: 0px;
+}
+
+.other_detail ul li {
+    display: inline-block;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.other_detail ul li img {
+    margin-top: 0px;
+    width: 50%;
+}
+
+.other_detail ul li:first-child {
+    margin-left: 0px;
+}
+
+.br_round1 {
+    border: 1px solid #f2f2f2;
+    padding-left: 3px;
+    padding-right: 3px;
+    line-height: 15px;
+}
+
+.br_round2 {
+    border: 1px solid #f2f2f2;
+    padding-left: 3px;
+    font-style: italic;
+    padding-right: 3px;
+    line-height: 15px;
+}
+
+.left_detail_container p,
+h3 {
+    margin-top: 0px;
+    color: #ccc;
+}
+
+.video_text {
+    display: block;
+    display: -webkit-box;
+    max-width: 100%;
+    height: 50px;
+    margin: 0 auto;
+    line-height: 1.3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #ccc;
+}
+
+.detail_right {
+    float: right;
+    width: 60%;
+    height: 50px;
+    background: transparent;
+    position: relative;
+}
+
+#close {
+    position: absolute;
+    right: 30px;
+    top: 20px;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #fff;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 1000000;
+}
+
+.vid_bg {
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: transparent;
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1);
+}
+
+.detail_right img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20%;
+}
+
+.other_links {
+    margin-top: 0px;
+}
+
+.play {
+    background: rgba(255, 0, 0, 1);
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 20px 5px 20px;
+}
+
+.play a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.mylist {
+    border: 1px solid #ccc;
+    color: #fff;
+    margin-left: 5px;
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 4px 20px 4px 20px;
+}
+
+.mylist a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.thumbs {
+    display: inline-block;
+    margin-left: 10px;
+    top: 7px;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    position: relative;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    z-index: 100000000000;
+}
+
+.thumbs i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+
+@media all and (max-width: 768px),
+only screen and (-webkit-min-device-pixel-ratio: 2) and only screen and (min-resolution: 192dpi) and (max-width: 1024px),
+only screen and (min-resolution: 2dppx) and (max-width: 1024px) {
+    .netflix-slider .swiper-slide:hover {
+        -webkit-transform: scale(1.2);
+        transform: scale(1.2);
+        z-index: 1;
+    }
+    .swiper-button-next {
+        display: none;
+    }
+    .swiper-button-next {
+        display: none;
+    }
+    .swiper-button-prev {
+        display: none;
+    }
+    .swiper-slide {
+        min-width: 180px;
+        height: 90px;
+    }
+}
