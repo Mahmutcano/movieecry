@@ -39,10 +39,27 @@
                     <label for="exampleFormControlTextarea1">Name</label>
                     <textarea class="form-control" name="mname" id="exampleFormControlTextarea1" value="{{ $movie->mname }}"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Category</label>
-                    <textarea class="form-control" name="mcategory" id="exampleFormControlTextarea1" value="{{ $movie->mcategory }}"></textarea>
-                </div>
+                    <div class="form-group">
+                        <label for="genre"> <b>Genre</b></label>
+                        <div class="col-sm-20">
+                            <select name="genre" id="genre" class="form-control">
+                                <option value="">Select Genre</option>
+                                @if ($genres)
+
+                                @foreach ($genres as $genre)
+
+                                <option value="{{($genre)}}">{{($genre)}}</option>
+
+                                @endforeach
+
+                                @endif
+
+
+
+                            </select>
+
+                        </div>
+                    </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Age Limit</label>
                     <textarea class="form-control" name="mold" id="exampleFormControlTextarea1" value="{{ $movie->mold }}"></textarea>

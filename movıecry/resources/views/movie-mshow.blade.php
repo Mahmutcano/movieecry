@@ -437,7 +437,7 @@
                     <small class="mt-2">TİTLE:{{ $movie->mtitle }}</small><br>
                     <small class="lead text-muted mt-1">NAME:{{ $movie->mname }}</small><br>
                     <small>TİME:{{ $movie->mtime }}</small>
-                    <small>CATEGORY:{{ $movie->mcategory }}</small>
+                    <small>CATEGORY:{{ $movie->genre }}</small>
                     <small>YEAR:{{ $movie->myear }}</small><br>
                     <small>DESC:{{ $movie->altdesc }}</small>
                 </div>

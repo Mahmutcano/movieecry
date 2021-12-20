@@ -76,9 +76,11 @@ https://templatemo.com/tm-560-astro-motion
 
 
   <div class="netflix-slider">
-
-    <h2>Recently</h2>
-
+          @foreach ($movies as $movie)
+                                @if ($movie->genre)
+                                <h1 >{{($movie->genre->)}}</h1>
+                                @endif
+        @endforeach
     <div class="swiper-container">
       <div class="swiper-wrapper">
           @foreach ($movies as $movie)
@@ -100,7 +102,7 @@ https://templatemo.com/tm-560-astro-motion
                  </div>
                  <div class="vid_category">
                    <ul class="vid_list">
-                      <li>{{ $movie->mcategory }}</li>
+                      <li>{{ $movie->genre }}</li>
                     </ul>
                  </div>
                  <div class="down_arrow">

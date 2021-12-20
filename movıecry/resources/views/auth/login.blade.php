@@ -1,7 +1,10 @@
 <x-guest-layout>
+
     <x-jet-authentication-card>
+
         <x-slot name="logo">
-            <x-jet-authentication-card-logo />
+            <img src="img/CryptoGuard.png" alt="" style="width: 90%">
+
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
@@ -36,7 +39,8 @@
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
                         {{ __('Forgot your password?') }}
-                    </a>
+                    </a><br>
+
                 @endif
 
                 <x-jet-button class="ml-4">
@@ -44,5 +48,9 @@
                 </x-jet-button>
             </div>
         </form>
+                     <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('register') }}">
+   {{ __('Register') }}
+                    </a>
     </x-jet-authentication-card>
+
 </x-guest-layout>

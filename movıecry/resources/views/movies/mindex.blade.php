@@ -21,7 +21,7 @@
                     <th scope="col">Title</th>
                     <th scope="col">Time</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Category</th>
+                    <th scope="col">Genre</th>
                     <th scope="col">Age Limit</th>
                     <th scope="col">Year</th>
                     <th scope="col">Season</th>
@@ -39,7 +39,7 @@
                         <td>{{ $movie->mtitle }}</td>
                         <td>{{ $movie->mtime }}</td>
                         <td>{{ $movie->mname }}</td>
-                        <td>{{ $movie->mcategory }}</td>
+                        <td>{{ $movie->genre }}</td>
                         <td>{{ $movie->mold }}</td>
                         <td>{{ $movie->myear }}</td>
                         <td>{{ $movie->mseason }}</td>

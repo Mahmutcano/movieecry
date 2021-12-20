@@ -28,7 +28,8 @@ class PlayController extends Controller
      */
     public function mcreate()
     {
-        return view('movies.mcreate');
+        $genres = ['Action' , 'Adventure' , 'Comedy' , 'Drama' , 'Thrill'  ];
+        return view('movies.mcreate' , compact('genres'));
     }
 
     /**
@@ -44,7 +45,7 @@ class PlayController extends Controller
             'mtime' => 'required',
             'mname' => 'required',
             'video' => 'required | mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,quicktime,x-msvideo,x-ms-wmv |max:9000000',
-            'mcategory' => 'required',
+            'genre' => 'required',
             'mold' => 'required',
             'myear' => 'required',
             'mseason' => 'required',
@@ -64,7 +65,7 @@ class PlayController extends Controller
             'mtitle' => $request->mtitle,
             'mtime' => $request->mtime,
             'mname' => $request->mname,
-            'mcategory' => $request->mcategory,
+            'genre' => $request->genre,
             'mold' => $request->mold,
             'myear' => $request->myear,
             'mseason' => $request->mseason,
@@ -72,6 +73,7 @@ class PlayController extends Controller
             'altdesc' => $request->altdesc,
             'mimg' => $newImageMovieName,
             'mvideo' => $newVideoMovieName,
+            'genre_id' => $request->genre_id,
             'user_id' => auth()->user()->id
         ]);
 
@@ -97,8 +99,9 @@ class PlayController extends Controller
      */
     public function medit($mname)
     {
+        $genres = ['Action' , 'Adventure' , 'Comedy' , 'Drama' , 'Thrill'  ];
         $movie = Movie::where('mname', $mname)->first();
-        return view('movies.medit', compact('movie'));
+        return view('movies.medit', compact('movie' , 'genres'));
     }
 
     /**
@@ -112,7 +115,9 @@ class PlayController extends Controller
     {
         $request->validate([
             'mtitle' => 'required',
-            'mname' => 'required'
+            'mname' => 'required',
+            'genre'=>'required',
+
         ]);
 
         $movie = Movie::where('mname',$mname)->first();
@@ -135,6 +140,7 @@ class PlayController extends Controller
         $movie->title = $request->mtitle;
         $movie->mtime = $request->mtime;
         $movie->mname = $request->mname;
+        $movie->genre = $request->genre;
         $movie->user_id = auth()->user()->id;
         $movie->update();
 

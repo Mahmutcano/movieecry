@@ -10,9 +10,13 @@ class Movie extends Model
     use HasFactory;
 
         protected $table = 'movies';
-        protected $fillable = ['mtitle', 'mtime', 'mname', 'mvideo', 'mimg', 'mcategory', 'mold', 'altimg', 'myear', 'mseason', 'alttitle', 'altdesc', 'user_id'];
+        protected $fillable = ['mtitle', 'mtime', 'mname', 'mvideo', 'mimg', 'genre', 'mold', 'altimg', 'myear', 'mseason', 'alttitle', 'altdesc', 'user_id'];
 
     public function User(){
         return $this->belongsTo(User::class);
+    }
+
+        public function Genre(){
+        return $this->belongsTo(Genre::class);
     }
 }
