@@ -25,18 +25,22 @@
             <form action="{{ route('epgs.epgstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Title</label>
-                    <input type="text" name="etitle" class="form-control" id="exampleFormControlInput1">
+                    <label for="exampleFormControlInput1">Channel İd</label>
+                    <input type="text" name="channels_id" class="form-control" id="exampleFormControlInput1">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Time</label>
-                    <textarea class="form-control" name="etime" id="exampleFormControlTextarea1"></textarea>
+                    <label for="exampleFormControlTextarea1">Start Time</label>
+                    <textarea class="form-control" name="start_time" id="exampleFormControlTextarea1"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Name</label>
-                    <textarea class="form-control" name="ename" id="exampleFormControlTextarea1"></textarea>
+                    <label for="exampleFormControlTextarea1">End Time</label>
+                    <textarea class="form-control" name="end_time" id="exampleFormControlTextarea1"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Timezone</label>
+                    <textarea class="form-control" name="timezone" id="exampleFormControlTextarea1"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Image</label>

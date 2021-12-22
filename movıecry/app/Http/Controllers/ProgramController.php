@@ -38,19 +38,22 @@ class ProgramController extends Controller
     public function epgstore(Request $request)
     {
                 $request->validate([
-            'etitle' => 'required',
-            'etime' => 'required',
-            'ename' => 'required',
+            'channels_id' => 'required',
+            'start_time' => 'required',
+            'end_time' => 'required',
+            'timezone' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:4096'
         ]);
 
-        $newImageEpgName = uniqid() . '-' . $request->etitle . '.' . $request->image->extension();
+        $newImageEpgName = uniqid() . '-' . $request->id . '.' . $request->image->extension();
         $request->image->move(public_path('images'), $newImageEpgName);
 
         Epg::create([
-            'etitle' => $request->etitle,
-            'etime' => $request->etime,
-            'ename' => $request->ename,
+            'id' => $request->id,
+            'channels_id' => $request->channels_id,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+            'timezone' => $request->timezone,
             'eimg' => $newImageEpgName,
             'user_id' => auth()->user()->id
         ]);
@@ -75,9 +78,9 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function eedit($ename)
+    public function eedit($id)
     {
-        $epg = Epg::where('ename', $ename)->first();
+        $epg = Epg::where('id', $id)->first();
         return view('epgs.eedit', compact('epg'));
     }
 
@@ -88,27 +91,30 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $ename)
+    public function update(Request $request, $id)
     {
         $request->validate([
-            'etitle' => 'required',
-            'etime' => 'required'
+            'start_time' => 'required',
+            'end_time' => 'required',
+            'timezone' => 'required'
+
         ]);
 
-        $epg = Epg::where('ename',$ename)->first();
+        $epg = Epg::where('id',$id)->first();
 
         if ($request->hasFile('image')) {
             $request->validate([
                 'İmage' => 'required|image|mimes:jpg,jpeg,png|max:4096'
             ]);
-            $newImageEpgName = uniqid() . '-' . $request->etitle . '.' . $request->image->extension();
+            $newImageEpgName = uniqid() . '-' . $request->id . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $newImageEpgName);
             $epg->cimg = $newImageEpgName;
         }
 
-        $epg->etitle = $request->etitle;
-        $epg->etime = $request->etime;
-        $epg->ename = $request->ename;
+        $epg->id = $request->id;
+        $epg->start_time = $request->start_time;
+        $epg->end_time = $request->end_time;
+        $epg->timezone = $request->timezone;
         $epg->user_id = auth()->user()->id;
         $epg->update();
 

@@ -14,6 +14,7 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/movie.css">
     <link rel="stylesheet"  href="scss/cleander.scss">
+    <link rel="stylesheet" href="maxvıdeo.css">
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <!--
@@ -76,11 +77,7 @@ https://templatemo.com/tm-560-astro-motion
 
 
   <div class="netflix-slider">
-          @foreach ($movies as $movie)
-                                @if ($movie->genre)
-                                <h1 >{{($movie->genre->)}}</h1>
-                                @endif
-        @endforeach
+<h1 style="color: rgb(156, 223, 0)"><i>MOVİE</i></h1>
     <div class="swiper-container">
       <div class="swiper-wrapper">
           @foreach ($movies as $movie)
@@ -150,8 +147,7 @@ https://templatemo.com/tm-560-astro-motion
            <p><span>{{ $movie->mtime }}<span> "{{ $movie->mname }}"</p>
            <p class="video_text">{{ $movie->altdesc }}</p>
            <div class="other_links">
-             <span class="play"><i class="fa fa-play"></i> <a href="#">PLAY</a></span>
-             <span class="mylist"><i class="fa fa-check"></i> <a href="#">Follow</a></span>
+             <span class="play"><i class="fa fa-play"></i> <a id="player" href="{{asset('videos')}}/{{ $movie->mvideo }}">PLAY</a></span>
            </div>
         </div>
       </div>
@@ -211,6 +207,8 @@ https://templatemo.com/tm-560-astro-motion
       },
     });
   </script>
+  <script>
+
 
 </body>
 </html>

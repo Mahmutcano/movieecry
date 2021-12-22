@@ -22,24 +22,27 @@
             @endforeach
             @endif
 
-            <form action="{{ route('epg.eupdate',$epg->ename) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('epg.eupdate',$epg->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Title</label>
-                    <input type="text" name="etitle" class="form-control" id="exampleFormControlInput1" value="{{ $epg->etitle }}">
+                    <input type="text" name="channels_id" class="form-control" id="exampleFormControlInput1" value="{{ $epg->etitle }}">
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Time</label>
-                    <textarea class="form-control" name="etime" id="exampleFormControlTextarea1" value="{{ $epg->etime }}"></textarea>
+                    <label for="exampleFormControlTextarea1">Start Time</label>
+                    <textarea class="form-control" name="start_time" id="exampleFormControlTextarea1" value="{{ $epg->etime }}"></textarea>
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Name</label>
-                    <textarea class="form-control" name="ename" id="exampleFormControlTextarea1" value="{{ $epg->ename }}"></textarea>
+                    <label for="exampleFormControlTextarea1">End Time</label>
+                    <textarea class="form-control" name="end_time" id="exampleFormControlTextarea1" value="{{ $epg->ename }}"></textarea>
                 </div>
-
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Timezone</label>
+                    <textarea class="form-control" name="timezone" id="exampleFormControlTextarea1" value="{{ $epg->ename }}"></textarea>
+                </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Choose Image</label>
                     <img src="{{ asset('images') }}/{{ $epg->eimg }}" alt="" style="width: 190px">

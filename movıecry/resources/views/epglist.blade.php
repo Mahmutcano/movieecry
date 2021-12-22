@@ -176,8 +176,11 @@
 
                                     <a href="index.html">
 
-                                        <h6 class="title">{{ $epg->etitle }}</h6>
-                                        <p class="description">{{ $epg->etime }}</p>
+                                        <h6 class="title">{{ $epg->channels_id }}</h6>
+                                        <p class="description">{{ $epg->start_time }}</p>
+                                        <p class="description">{{ $epg->end_time }}</p>
+                                        <p class="description">{{ $epg->timezone }}</p>
+
 
                                     </a>
 
