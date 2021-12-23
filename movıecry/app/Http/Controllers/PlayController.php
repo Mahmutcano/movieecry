@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Movie;
 
+use App\Models\Genre;
+
 use Illuminate\Support\Str;
 
 class PlayController extends Controller
@@ -19,6 +21,9 @@ class PlayController extends Controller
     {
         $movies = Movie::where('user_id', auth()->user()->id)->orderBy('updated_at', 'DESC')->paginate(12);
         return view('movies.mindex', compact('movies'));
+
+        $movies = Movie::with('genres')->paginate(5);
+        return view('movies.index', compact('movies'));
     }
 
     /**
@@ -28,7 +33,7 @@ class PlayController extends Controller
      */
     public function mcreate()
     {
-        $genres = ['Action' , 'Adventure' , 'Comedy' , 'Drama' , 'Thrill'  ];
+        $genres = Genre::all();
         return view('movies.mcreate' , compact('genres'));
     }
 
@@ -51,6 +56,7 @@ class PlayController extends Controller
             'mseason' => 'required',
             'alttitle' => 'required',
             'altdesc' => 'required',
+            'genre_id' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:4096'
         ]);
 
@@ -97,11 +103,15 @@ class PlayController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function medit($mname)
+    public function medit($id)
     {
-        $genres = ['Action' , 'Adventure' , 'Comedy' , 'Drama' , 'Thrill'  ];
-        $movie = Movie::where('mname', $mname)->first();
-        return view('movies.medit', compact('movie' , 'genres'));
+        $movies = Movie::with('genres')->get();
+        foreach ($movies as $movie) {
+            if ($movie->id == $id) {
+                $genres = Genre::get();
+                return view('movies.medit', compact( 'genres', 'movie'));
+            }
+        }
     }
 
     /**
@@ -116,7 +126,7 @@ class PlayController extends Controller
         $request->validate([
             'mtitle' => 'required',
             'mname' => 'required',
-            'genre'=>'required',
+            'genres'=>'required',
 
         ]);
 
@@ -140,7 +150,7 @@ class PlayController extends Controller
         $movie->title = $request->mtitle;
         $movie->mtime = $request->mtime;
         $movie->mname = $request->mname;
-        $movie->genre = $request->genre;
+        $movie->genres = $request->genres;
         $movie->user_id = auth()->user()->id;
         $movie->update();
 

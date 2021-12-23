@@ -39,7 +39,7 @@
                         <td>{{ $movie->mtitle }}</td>
                         <td>{{ $movie->mtime }}</td>
                         <td>{{ $movie->mname }}</td>
-                        <td>{{ $movie->genre }}</td>
+                        <td>{{ $movie->genre->name }}</td>
                         <td>{{ $movie->mold }}</td>
                         <td>{{ $movie->myear }}</td>
                         <td>{{ $movie->mseason }}</td>

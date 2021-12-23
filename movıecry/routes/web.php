@@ -11,6 +11,7 @@ use App\Http\Controllers\EpgController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\FragmanController;
+use App\Http\Controllers\GenreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
 Route::get('movieplay', [MovieController::class, 'mindex'])->name('all.movie');
 Route::get('/movie-mshow/{mname}', [MovieController::class, 'mshow'])->name('movie.mshow');
+Route::get('/genre/{genre}', [MoviesController::class, 'genre'])->name('genre');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/mindex', [PlayController::class, 'mindex'])->name('mindex');
@@ -59,6 +61,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/movie-edit/{mname}', [PlayController::class, 'medit'])->name('movie.medit');
     Route::put('/movie-update/{mname}', [PlayController::class, 'mupdate'])->name('movie.mupdate');
     Route::get('/movie-delete/{id}', [PlayController::class, 'mdestroy'])->name('movie.mdelete');
+    Route::resource('/dashboard/genres', GenreController::class);
+
 });
 
 Route::get('epglist', [EpgController::class, 'eindex'])->name('all.epg');

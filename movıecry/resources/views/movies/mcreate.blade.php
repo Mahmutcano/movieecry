@@ -47,7 +47,7 @@
 
                                 @foreach ($genres as $genre)
 
-                                <option value="{{($genre)}}">{{($genre)}}</option>
+                                <option value="{{($genre->id)}}">{{($genre->name)}}</option>
 
                                 @endforeach
 

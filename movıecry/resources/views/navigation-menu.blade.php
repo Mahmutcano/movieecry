@@ -25,6 +25,9 @@
                     <x-jet-nav-link href="{{ route('mindex') }}" :active="request()->routeIs('mindex')">
                         {{ __('My Movies') }}
                     </x-jet-nav-link>
+                    <x-jet-nav-link href="{{ route('genres.index') }}" :active="request()->routeIs('genres.index')">
+                        {{ __('Genre') }}
+                    </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('eindex') }}" :active="request()->routeIs('eindex')">
                         {{ __('My Epg') }}
                     </x-jet-nav-link>

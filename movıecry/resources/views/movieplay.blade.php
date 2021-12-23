@@ -76,8 +76,11 @@ https://templatemo.com/tm-560-astro-motion
       <div class="container-fluid tm-content-container" style="width: 100%">
 
 
+      @foreach($movies as $movie => $genre)
   <div class="netflix-slider">
-<h1 style="color: rgb(156, 223, 0)"><i>MOVİE</i></h1>
+
+        <h1 style="color: rgb(156, 223, 0)"><i>{{ $genre->name }}</i></h1>
+
     <div class="swiper-container">
       <div class="swiper-wrapper">
           @foreach ($movies as $movie)
@@ -165,6 +168,7 @@ https://templatemo.com/tm-560-astro-motion
  @endforeach
 
 
+
   <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/slick.js"></script>
@@ -207,8 +211,8 @@ https://templatemo.com/tm-560-astro-motion
       },
     });
   </script>
-  <script>
 
 
+@endforeach
 </body>
 </html>
