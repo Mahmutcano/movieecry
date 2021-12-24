@@ -20,8 +20,6 @@ class CreateChannelsTable extends Migration
             $table->longText('cname');
             $table->string('cimg');
 
-            $table->unsignedBigInteger('genre_id');
-            $table->foreign('genre_id')->references('id')->on('genres');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

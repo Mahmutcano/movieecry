@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Genre;
+use App\Models\Movie;
+use App\Models\User;
 
 class GenreController extends Controller
 {
@@ -16,6 +18,8 @@ class GenreController extends Controller
     {
         $genres = Genre::paginate(5);
         return view('genres.index', compact('genres'));
+
+
     }
 
     /**
@@ -38,19 +42,14 @@ class GenreController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
-
-
+            'name' => 'required'
         ]);
 
         $genre = $request->all();
 
-        Genre::create([
-            'name' => $request->name,
-            'user_id' => auth()->user()->id
-        ]);
 
-        return redirect()->back()->with('messages', 'Created successfully!');
+        Genre::create($genre);
+        return redirect()->route('genres.index');
     }
 
     /**

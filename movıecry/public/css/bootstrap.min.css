@@ -41,7 +41,7 @@
 }
 
 @media (prefers-reduced-motion:no-preference) {
-    :root {
+     :root {
         scroll-behavior: smooth
     }
 }
@@ -2488,7 +2488,7 @@ textarea.form-control-lg {
 }
 
 .form-range:disabled::-webkit-slider-thumb {
-    background-color: #adb5bd
+    background-color: #005fbe
 }
 
 .form-range:disabled::-moz-range-thumb {
@@ -2613,7 +2613,7 @@ textarea.form-control-lg {
     color: #212529;
     text-align: center;
     white-space: nowrap;
-    background-color: #e9ecef;
+    background-color: #0080ff;
     border: 1px solid #ced4da;
     border-radius: .25rem
 }
