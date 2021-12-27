@@ -19,11 +19,7 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <!--
 
-TemplateMo 560 Astro Motion
 
-https://templatemo.com/tm-560-astro-motion
-
--->
 </head>
 <body>
        <video autoplay muted loop id="bg-video">

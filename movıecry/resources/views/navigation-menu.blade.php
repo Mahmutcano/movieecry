@@ -22,17 +22,8 @@
                     <x-jet-nav-link href="{{ route('channelAdd') }}" :active="request()->routeIs('channelAdd')">
                         {{ __('My Channel') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('movies.index') }}" :active="request()->routeIs('movies.index')">
+                    <x-jet-nav-link href="{{ route('mindex') }}" :active="request()->routeIs('mindex')">
                         {{ __('My Movies') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('genres.index') }}" :active="request()->routeIs('genres.index')">
-                        {{ __('Genre') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('directors.index') }}" :active="request()->routeIs('directors.index')">
-                        {{ __('Director') }}
-                    </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('actors.index') }}" :active="request()->routeIs('actors.index')">
-                        {{ __('Actor') }}
                     </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('eindex') }}" :active="request()->routeIs('eindex')">
                         {{ __('My Epg') }}

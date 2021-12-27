@@ -5,18 +5,12 @@ use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ChannelController;
 use App\Http\Controllers\TvController;
+use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\EpgController;
 use App\Http\Controllers\ProgramController;
 use App\Http\Controllers\FilmController;
 use App\Http\Controllers\FragmanController;
-use App\Http\Controllers\GenreController;
-use App\Http\Controllers\ListActorsController;
-use App\Http\Controllers\ListDirectorsController;
-use App\Http\Controllers\ListMoviesController;
-use App\Http\Controllers\ActorController;
-use App\Http\Controllers\DirectorController;
-use App\Http\Controllers\MovieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +49,17 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/channel-channelDelete/{id}', [TvController::class, 'channelDestroy'])->name('channel.channelDelete');
 });
 
+Route::get('movieplay', [MovieController::class, 'mindex'])->name('all.movie');
+Route::get('/movie-mshow/{mname}', [MovieController::class, 'mshow'])->name('movie.mshow');
 
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/mindex', [PlayController::class, 'mindex'])->name('mindex');
+    Route::get('/movie-add', [PlayController::class, 'mcreate'])->name('movie.mcreate');
+    Route::post('/movie-store', [PlayController::class, 'mstore'])->name('movie.mstore');
+    Route::get('/movie-edit/{mname}', [PlayController::class, 'medit'])->name('movie.medit');
+    Route::put('/movie-update/{mname}', [PlayController::class, 'mupdate'])->name('movie.mupdate');
+    Route::get('/movie-delete/{id}', [PlayController::class, 'mdestroy'])->name('movie.mdelete');
+});
 
 Route::get('epglist', [EpgController::class, 'eindex'])->name('all.epg');
 Route::get('/epg-eshow/{ename}', [EpgController::class, 'eshow'])->name('epg.eshow');
@@ -67,25 +71,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/epg-edit/{ename}', [ProgramController::class, 'eedit'])->name('epgs.eedit');
     Route::put('/epg-update/{ename}', [ProgramController::class, 'eupdate'])->name('epgs.eupdate');
     Route::get('/epg-delete/{id}', [ProgramController::class, 'edestroy'])->name('epgs.edelete');
-});
-
-Route::get('/movies', [ListMoviesController::class, 'index'])->name('movies');
-Route::get('/movie/{id}', [ListMoviesController::class, 'show'])->name('movie');
-Route::get('/genre/{genre}', [ListMoviesController::class, 'genre'])->name('genre');
-
-Route::get('/directors', [ListDirectorsController::class, 'index'])->name('directors');
-Route::get('/director/{id}', [ListDirectorsController::class, 'show'])->name('director');
-
-Route::get('/actors', [ListActorsController::class, 'index'])->name('actors');
-Route::get('/actor/{id}', [ListActorsController::class, 'show'])->name('actor');
-
-
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::resource('/dashboard/movies', MovieController::class);
-    Route::resource('/dashboard/directors', DirectorController::class);
-    Route::resource('/dashboard/genres', GenreController::class);
-    Route::resource('/dashboard/actors', ActorController::class);
-    Route::get('/dashboard', function(){
-        return view('dashboard');
-    })->name('dashboard');
 });

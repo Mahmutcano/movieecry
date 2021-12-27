@@ -15,22 +15,19 @@ class CreateMoviesTable extends Migration
     {
         Schema::create('movies', function (Blueprint $table) {
             $table->id();
-
-            $table->string('mov_title');
-            $table->string('video');
-
-
-            $table->decimal('mov_rate');
-            $table->string('mov_lınk');
-            $table->string('poster');
-            $table->date('mov_date');
-            $table->decimal('mov_old');
-            $table->decimal('mov_sesson');
-            $table->string('desc');
-            $table->datetime('mov_startime');
-            $table->datetime('mov_endtime');
-            $table->unsignedBigInteger('director_id');
-            $table->foreign('director_id')->references('id')->on('directors')->onDelete('cascade');
+            $table->longText('mtitle');
+            $table->string('mtime')->nullable();
+            $table->longText('mname');
+            $table->string('mvideo');
+            $table->string('mimg');
+            $table->string('mcategory');
+            $table->string('mold');
+            $table->string('myear');
+            $table->string('mseason');
+            $table->string('alttitle');
+            $table->string('altdesc');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

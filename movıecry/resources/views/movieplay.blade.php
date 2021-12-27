@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astro Motion by TemplateMo</title>
+    <title>CryptoGuard</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/slick.css" type="text/css" />
@@ -17,13 +17,7 @@
     <link rel="stylesheet" href="maxvıdeo.css">
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-<!--
 
-TemplateMo 560 Astro Motion
-
-https://templatemo.com/tm-560-astro-motion
-
--->
 </head>
 <body>
   <video autoplay muted loop id="bg-video">
