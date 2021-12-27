@@ -38,17 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/post-delete/{id}', [PostController::class, 'destroy'])->name('post.delete');
 });
 
-Route::get('channelview', [ChannelController::class, 'channelAdd'])->name('all.channel');
-Route::get('/channel-channelShow/{ctime}', [ChannelController::class, 'channelShow'])->name('channel.channelShow');
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::get('/channelAdd', [TvController::class, 'channelAdd'])->name('channelAdd');
-    Route::get('/channel-add', [TvController::class, 'channelCreate'])->name('channel.channelCreate');
-    Route::post('/channel-channelStore', [TvController::class, 'channelStore'])->name('channel.channelStore');
-    Route::get('/channel-channelEdit/{ctime}', [TvController::class, 'channelEdit'])->name('channel.channelEdit');
-    Route::put('/channel-channelUpdate/{ctime}', [TvController::class, 'channelUpdate'])->name('channel.channelUpdate');
-    Route::get('/channel-channelDelete/{id}', [TvController::class, 'channelDestroy'])->name('channel.channelDelete');
-});
 
 Route::get('movieplay', [MovieController::class, 'mindex'])->name('all.movie');
 Route::get('/movie-mshow/{mname}', [MovieController::class, 'mshow'])->name('movie.mshow');
@@ -84,4 +74,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/genre-edit/{name}', [GenreController::class, 'gedit'])->name('genres.gedit');
     Route::put('/genre-update/{name}', [GenreController::class, 'gupdate'])->name('genres.gupdate');
     Route::get('/genre-delete/{id}', [GenreController::class, 'gdestroy'])->name('genres.gdelete');
+});
+
+Route::get('/channelview', [ChannelController::class, 'cindex'])->name('all.channel');
+Route::get('/channel-cshow/{cname}', [ChannelController::class, 'cshow'])->name('channel.cshow');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/cindex', [TvController::class, 'cindex'])->name('cindex');
+    Route::get('/channel-add', [TvController::class, 'ccreate'])->name('channel.ccreate');
+    Route::post('/channel-store', [TvController::class, 'cstore'])->name('channel.cstore');
+    Route::get('/channel-edit/{cname}', [TvController::class, 'cedit'])->name('channel.cedit');
+    Route::put('/channel-update/{cname}', [TvController::class, 'cupdate'])->name('channel.cupdate');
+    Route::get('/channel-delete/{id}', [TvController::class, 'cdestroy'])->name('channel.cdelete');
 });

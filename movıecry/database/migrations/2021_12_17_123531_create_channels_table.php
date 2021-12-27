@@ -16,7 +16,8 @@ class CreateChannelsTable extends Migration
         Schema::create('channels', function (Blueprint $table) {
             $table->id();
             $table->string('ctitle');
-            $table->string('ctime')->nullable();
+            $table->date('cdate')->nullable();
+            $table->time('ctime')->nullable();
             $table->longText('cname');
             $table->string('cimg');
 

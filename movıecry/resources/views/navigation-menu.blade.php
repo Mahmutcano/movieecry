@@ -17,7 +17,7 @@
                     <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                         {{ __('My Post') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('channelAdd') }}" :active="request()->routeIs('channelAdd')">
+                    <x-jet-nav-link href="{{ route('cindex') }}" :active="request()->routeIs('cindex')">
                         {{ __('My Channel') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('mindex') }}" :active="request()->routeIs('mindex')">

@@ -11,13 +11,8 @@
     <link rel="stylesheet" href="css/slick.css" type="text/css" />
     <link rel="stylesheet" href="css/templatemo-style.css">
     <link rel="stylesheet" href="css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="css/cleander.css">
-    <link rel="stylesheet" type="text/css" href="css/card.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet"  href="scss/cleander.scss">
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
-<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
-<!--
+<link rel="stylesheet" type="text/css" href="css/story.css">
+
 
 
 </head>
@@ -69,62 +64,85 @@
       </div>
 
 
+       @foreach($channels as $channel)
+<div class="slider">
 
-<div id="MyClockDisplay" class="clock" onload="showTime()"></div>
+		<ul>
+            <li>
+	<section class="wrapper">
 
-@foreach ($channels as $channel)
 
-	<div class="container">
-	   <div class="Box" >
-	   	<div class="FlipBox">
 
- <li>
-	   		<div class="Front" >
-	   			<img src="{{asset('images')}}/{{ $channel->cimg }}" alt="">
-	   		</div>
+
+  <div class="card" data-effect="zoom">
+    <button class="card__save  js-save" type="button">
+      <i class="fa  fa-bookmark"></i>
+     </button>
+
+    <figure  class="card__image">
+      <img src="{{asset('images')}}/{{ $channel->cimg }}" alt="Short description">
+    </figure>
+    <div class="card__header">
+      <figure class="card__profile">
+        <img src="{{asset('images')}}/{{ $channel->cimg }}" alt="Short description">
+      </figure>
+    </div>
+    <div class="card__body">
+      <h3 class="card__name">{{ $channel->cname }}</h3>
+      <p class="card__job">{{ $channel->cdate }} /{{ $channel->ctime }}</p>
+
+    </div>
+  </div>
+
+
+
+</section>
 </li>
+        </ul>
+
+	</div>
+	<div class="sliderControl"></div>
+	<div class="timer">
+		<div class="percentage">
+		</div>
+
+  </div>
+
+        @endforeach
+               @foreach($channels as $channel)
+  <script>
+     function myFunction() {
+        var x = document.getElementById("d_container");
+         {
+            x.style.display = "block";
+         }
+    }
+
+    function myFunction1() {
+        var x = document.getElementById("Demodiv");
+        {
+            x.style.display = "block";
+        }
+    }
+  </script>
 
 
-
-
-<div class="Back">
-<div class="leaderboard">
-  <h1>
-    {{ $channel->ctitle }}
-  </h1>
-  <ol>
-    <li class="channelli">
-      <mark>{{ $channel->cname }}</mark>
-      <small>{{ $channel->ctime }}</small>
-    </li>
-    <li class="channelli">
-      <mark>{{ $channel->cname }}</mark>
-      <small>{{ $channel->ctime }}</small>
-    </li>
-    <li class="channelli">
-      <mark>{{ $channel->cname }}</mark>
-      <small>{{ $channel->ctime }}</small>
-    </li>
-    <li class="channelli">
-      <mark>{{ $channel->cname }}</mark>
-      <small>{{ $channel->ctime }}</small>
-    </li>
-    <li class="channelli">
-      <mark>{{ $channel->cname }}</mark>
-      <small>{{ $channel->ctime }}</small>
-    </li>
-  </ol>
-</div>
-	   			</div>
-	   		</div>
-	   	</div>
-	   </div>
-
-           @endforeach
-	   </div>
-
-
-
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,
+      spaceBetween: 4,
+      slidesPerGroup: 2,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+  @endforeach
         <script src="js/jquery-3.5.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/slick.js"></script>
@@ -134,6 +152,8 @@
   <script  src="js/script.js"></script>
     <script  src="js/cleander.js"></script>
         <script  src="js/card.js"></script>
+        <script  src="js/story.js"></script>
+
 </body>
 </html>
 

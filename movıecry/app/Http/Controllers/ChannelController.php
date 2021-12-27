@@ -8,13 +8,13 @@ use App\Models\Channel;
 
 class ChannelController extends Controller
 {
-       public function channelAdd(){
-        $channels = Channel::orderBy('updated_at', 'DESC')->paginate(0);
+    public function cindex(){
+        $channels = Channel::orderBy('updated_at', 'DESC')->paginate(6);
         return view('channelview',compact('channels'));
     }
 
-    public function channelShow($ctime){
-        $channel = Channel::where('ctime',$ctime)->first();
-        return view('channel-channelShow',compact('channel'));
+    public function cshow($cname){
+        $channels = Channel::where('cname',$cname)->first();
+        return view('channel-cshow',compact('channel'));
     }
 }

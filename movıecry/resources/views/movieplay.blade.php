@@ -9,12 +9,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/slick.css" type="text/css" />
     <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="stylesheet" href="css/swiper.min.css">
-    <link rel="stylesheet" type="text/css" href="css/cleander.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" type="text/css" href="css/movie.css">
-    <link rel="stylesheet"  href="scss/cleander.scss">
-    <link rel="stylesheet" href="maxvıdeo.css">
+    <link rel="stylesheet" href="story.css">
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
