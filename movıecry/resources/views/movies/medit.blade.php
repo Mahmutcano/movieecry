@@ -41,7 +41,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Category</label>
-                    <textarea class="form-control" name="mcategory" id="exampleFormControlTextarea1" value="{{ $movie->mcategory }}"></textarea>
+                    <textarea class="form-control" name="mcategory" id="exampleFormControlTextarea1" value="{{ $movie->genre_id }}"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Age Limit</label>

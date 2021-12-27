@@ -70,10 +70,9 @@
       <div class="container-fluid tm-content-container" style="width: 100%">
 
 
-      @foreach($movies as $movie => $genre)
   <div class="netflix-slider">
 
-        <h1 style="color: rgb(156, 223, 0)"><i>{{ $genre->name }}</i></h1>
+        <h1 style="color: rgb(156, 223, 0)"><i>Movie</i></h1>
 
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -207,6 +206,6 @@
   </script>
 
 
-@endforeach
+
 </body>
 </html>

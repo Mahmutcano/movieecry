@@ -12,9 +12,7 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-12 sm:flex">
-                    <x-jet-nav-link href="{{ route('all.post') }}" :active="request()->routeIs('all.post')">
-                        {{ __('Web Site') }}
-                    </x-jet-nav-link>
+
 
                     <x-jet-nav-link href="{{ route('index') }}" :active="request()->routeIs('index')">
                         {{ __('My Post') }}
@@ -27,6 +25,9 @@
                     </x-jet-nav-link>
                         <x-jet-nav-link href="{{ route('eindex') }}" :active="request()->routeIs('eindex')">
                         {{ __('My Epg') }}
+                    </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ route('gindex') }}" :active="request()->routeIs('gindex')">
+                        {{ __('My Genre') }}
                     </x-jet-nav-link>
 
                 </div>

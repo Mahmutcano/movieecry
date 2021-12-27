@@ -9,8 +9,10 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\PlayController;
 use App\Http\Controllers\EpgController;
 use App\Http\Controllers\ProgramController;
-use App\Http\Controllers\FilmController;
-use App\Http\Controllers\FragmanController;
+use App\Http\Controllers\ListGenreController;
+use App\Http\Controllers\GenreController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,6 @@ use App\Http\Controllers\FragmanController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 
 Route::get('/', [PageController::class, 'index'])->name('all.post');
@@ -37,7 +38,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/post-delete/{id}', [PostController::class, 'destroy'])->name('post.delete');
 });
 
-Route::get('/channelview', [ChannelController::class, 'channelAdd'])->name('channelview');
+Route::get('channelview', [ChannelController::class, 'channelAdd'])->name('all.channel');
 Route::get('/channel-channelShow/{ctime}', [ChannelController::class, 'channelShow'])->name('channel.channelShow');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
@@ -71,4 +72,16 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/epg-edit/{ename}', [ProgramController::class, 'eedit'])->name('epgs.eedit');
     Route::put('/epg-update/{ename}', [ProgramController::class, 'eupdate'])->name('epgs.eupdate');
     Route::get('/epg-delete/{id}', [ProgramController::class, 'edestroy'])->name('epgs.edelete');
+});
+
+Route::get('/search', [ListGenreController::class, 'gindex'])->name('all.genre');
+Route::get('/genre-gshow/{name}', [ListGenreController::class, 'gshow'])->name('genres.gshow');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::get('/gindex', [GenreController::class, 'gindex'])->name('gindex');
+    Route::get('/genre-add', [GenreController::class, 'gcreate'])->name('genres.gcreate');
+    Route::post('/genre-store', [GenreController::class, 'gstore'])->name('genres.gstore');
+    Route::get('/genre-edit/{name}', [GenreController::class, 'gedit'])->name('genres.gedit');
+    Route::put('/genre-update/{name}', [GenreController::class, 'gupdate'])->name('genres.gupdate');
+    Route::get('/genre-delete/{id}', [GenreController::class, 'gdestroy'])->name('genres.gdelete');
 });

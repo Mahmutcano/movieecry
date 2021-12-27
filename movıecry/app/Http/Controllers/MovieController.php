@@ -16,5 +16,7 @@ class MovieController extends Controller
     public function mshow($mname){
         $movie = Movie::where('mname',$mname)->first();
         return view('movie-mshow',compact('movie'));
+
+
     }
 }

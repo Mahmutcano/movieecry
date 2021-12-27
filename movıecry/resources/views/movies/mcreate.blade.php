@@ -29,31 +29,31 @@
                     <input type="text" name="mtitle" class="form-control" id="exampleFormControlInput1">
                 </div>
 
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Time</label>
-                    <textarea class="form-control" name="mtime" id="exampleFormControlTextarea1"></textarea>
-                </div>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Time</label>
+                            <input type="time" name="mtime" class="form-control" id="floatingInput">
+                        </div><br>
 
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Name</label>
                     <textarea class="form-control" name="mname" id="exampleFormControlTextarea1"></textarea>
-                </div>
+                </div><br>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Category</label>
-                    <textarea class="form-control" name="mcategory" id="exampleFormControlTextarea1"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Age Limit</label>
-                    <textarea class="form-control" name="mold" id="exampleFormControlTextarea1"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Year</label>
-                    <textarea class="form-control" name="myear" id="exampleFormControlTextarea1"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Season</label>
-                    <textarea class="form-control" name="mseason" id="exampleFormControlTextarea1"></textarea>
-                </div>
+                    <label for="exampleFormControlTextarea1">Genre</label>
+                    <input type="number" name="genre_id" class="form-select" id="exampleFormControlTextarea1">
+                </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Age Limit</label>
+                            <input type="number" name="mold" class="form-control" id="floatingInput" placeholder="+">
+                        </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Year</label>
+                            <input type="date" name="myear" class="form-control" id="floatingInput">
+                        </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Seasson</label>
+                            <input type="number" name="mseason" class="form-control" id="floatingInput" placeholder="Part">
+                        </div><br>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Max Title</label>
                     <textarea class="form-control" name="alttitle" id="exampleFormControlTextarea1"></textarea>

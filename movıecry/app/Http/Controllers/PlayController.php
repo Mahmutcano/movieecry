@@ -19,6 +19,9 @@ class PlayController extends Controller
     {
         $movies = Movie::where('user_id', auth()->user()->id)->orderBy('updated_at', 'DESC')->paginate(12);
         return view('movies.mindex', compact('movies'));
+
+        $movies = Movie::where('genre_id')->orderBy('updated_at', 'DESC')->paginate(12);
+        return view('movies.mindex', compact('movies'));
     }
 
     /**
@@ -44,7 +47,7 @@ class PlayController extends Controller
             'mtime' => 'required',
             'mname' => 'required',
             'video' => 'required | mimes:mp4,x-flv,x-mpegURL,MP2T,3gpp,quicktime,x-msvideo,x-ms-wmv |max:9000000',
-            'mcategory' => 'required',
+            'genre_id' => 'required',
             'mold' => 'required',
             'myear' => 'required',
             'mseason' => 'required',
@@ -64,7 +67,7 @@ class PlayController extends Controller
             'mtitle' => $request->mtitle,
             'mtime' => $request->mtime,
             'mname' => $request->mname,
-            'mcategory' => $request->mcategory,
+            'genre_id' => $request->genre_id,
             'mold' => $request->mold,
             'myear' => $request->myear,
             'mseason' => $request->mseason,

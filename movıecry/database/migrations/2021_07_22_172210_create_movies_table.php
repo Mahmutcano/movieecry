@@ -20,9 +20,9 @@ class CreateMoviesTable extends Migration
             $table->longText('mname');
             $table->string('mvideo');
             $table->string('mimg');
-            $table->string('mcategory');
+            $table->foreignId('genre_id')->nullable()->index();
             $table->string('mold');
-            $table->string('myear');
+            $table->date('myear');
             $table->string('mseason');
             $table->string('alttitle');
             $table->string('altdesc');

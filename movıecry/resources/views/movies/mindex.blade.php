@@ -39,15 +39,15 @@
                         <td>{{ $movie->mtitle }}</td>
                         <td>{{ $movie->mtime }}</td>
                         <td>{{ $movie->mname }}</td>
-                        <td>{{ $movie->mcategory }}</td>
+                        <td>{{ $movie->genre_id }}</td>
                         <td>{{ $movie->mold }}</td>
                         <td>{{ $movie->myear }}</td>
                         <td>{{ $movie->mseason }}</td>
                         <td>{{ $movie->alttitle }}</td>
                         <td>{{ $movie->altdesc }}</td>
                         <td>
-                            <a href="{{ route('movie.medit',$movie->mname) }}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
-                            <a href="{{ route('movie.mshow',$movie->mname) }}" class="btn btn-sm btn-warning mt-1"><i class="fas fa-info"></i></a>
+                            <a href="{{ route('movie.medit',$movie->id) }}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
+                            <a href="{{ route('movie.mshow',$movie->id) }}" class="btn btn-sm btn-warning mt-1"><i class="fas fa-info"></i></a>
                             <a href="{{ route('movie.mdelete',$movie->id) }}" class="btn btn-sm btn-danger mt-1"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>
