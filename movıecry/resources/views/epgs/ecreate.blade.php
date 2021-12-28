@@ -24,23 +24,26 @@
 
             <form action="{{ route('epgs.epgstore') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Channel İd</label>
-                    <input type="text" name="channels_id" class="form-control" id="exampleFormControlInput1">
-                </div>
 
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Start Time</label>
-                    <textarea class="form-control" name="start_time" id="exampleFormControlTextarea1"></textarea>
+                    <label for="exampleFormControlTextarea1">Program Name</label>
+                    <textarea class="form-control" name="ename" id="exampleFormControlTextarea1"></textarea>
                 </div>
-
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Start Time</label>
+                            <input type="time" name="start_time" class="form-control" id="floatingInput">
+                        </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">End Time</label>
+                            <input type="time" name="end_time" class="form-control" id="floatingInput">
+                        </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Date</label>
+                            <input type="date" name="timezone" class="form-control" id="floatingInput">
+                        </div><br>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">End Time</label>
-                    <textarea class="form-control" name="end_time" id="exampleFormControlTextarea1"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Timezone</label>
-                    <textarea class="form-control" name="timezone" id="exampleFormControlTextarea1"></textarea>
+                    <label for="exampleFormControlTextarea1">Program Link</label>
+                    <textarea class="form-control" name="elink" id="exampleFormControlTextarea1"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Image</label>

@@ -16,25 +16,27 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">Channels Id</th>
+                    <th scope="col">İmage</th>
                     <th scope="col">Start Time</th>
                     <th scope="col">End Time</th>
                     <th scope="col">Timezone</th>
-                    <th scope="col">İmage</th>
+                    <th scope="col">Program Name</th>
+                    <th scope="col">Program Link</th>
                 </tr>
             </thead>
             <tbody>
                 @foreach ($epgs as $epg)
                     <tr>
                         <td scope="row"><img src="{{ asset('images') }}/{{ $epg->eimg }}" alt="" style="width: 50px"></td>
-                        <td>{{ $epg->channels_id }}</td>
                         <td>{{ $epg->start_time }}</td>
                         <td>{{ $epg->end_time }}</td>
                         <td>{{ $epg->timezone }}</td>
+                        <td>{{ $epg->ename }}</td>
+                        <td>{{ $epg->elink }}</td>
 
                         <td>
-                            <a href="{{ route('epgs.eedit',$epg->id) }}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
-                            <a href="{{ route('epg.eshow',$epg->id) }}" class="btn btn-sm btn-warning mt-1"><i class="fas fa-info"></i></a>
+                            <a href="{{ route('epgs.eedit',$epg->ename) }}" class="btn btn-sm btn-success"><i class="far fa-edit"></i></a>
+                            <a href="{{ route('epg.eshow',$epg->ename) }}" class="btn btn-sm btn-warning mt-1"><i class="fas fa-info"></i></a>
                             <a href="{{ route('epgs.edelete',$epg->id) }}" class="btn btn-sm btn-danger mt-1"><i class="far fa-trash-alt"></i></a>
                         </td>
                     </tr>

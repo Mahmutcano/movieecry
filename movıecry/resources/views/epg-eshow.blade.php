@@ -430,7 +430,7 @@
             <section class="jumbotron text-center mt-1">
                 <div class="container">
                     <img src="{{asset('images')}}/{{ $epg->eimg}}" alt="" class="img-fluid img-thumbnail rounded mx-auto d-block" style="width: 300px">
-                    <h1 class="mt-3">{{ $epg->channels_id }}</h1>
+                    <h1 class="mt-3">{{ $epg->ename }}</h1>
                     <p class="lead text-muted mt-3">{{ $epg->start_time }}</p>
                     <p class="lead text-muted mt-3">{{ $epg->end_time }}</p>
                     <p class="lead text-muted mt-3">{{ $epg->timezone }}</p>

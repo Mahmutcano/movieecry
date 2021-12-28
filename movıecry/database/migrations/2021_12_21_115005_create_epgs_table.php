@@ -14,12 +14,13 @@ class CreateEpgsTable extends Migration
     public function up()
     {
         Schema::create('epgs', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->integer('channels_id');
-            $table->dateTimeTz('start_time', 0);
-            $table->dateTimeTz('end_time', 0);
-            $table->string('timezone', 30);
+            $table->id();
+            $table->time('start_time', 0);
+            $table->time('end_time', 0);
+            $table->date('timezone', 30);
             $table->string('eimg');
+            $table->string('ename');
+            $table->longText('elink');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

@@ -26,22 +26,29 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Title</label>
-                    <input type="text" name="channels_id" class="form-control" id="exampleFormControlInput1" value="{{ $epg->etitle }}">
+                    <label for="exampleFormControlInput1">Channel İd</label>
+                    <input type="text" name="channels_id" class="form-control" id="exampleFormControlInput1" value="{{ $epg->channels_id }}">
                 </div>
 
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Start Time</label>
+                            <input type="time" name="start_time" class="form-control" id="floatingInput">
+                        </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">End Time</label>
+                            <input type="time" name="end_time" class="form-control" id="floatingInput">
+                        </div><br>
+                        <div class="exampleFormControlTextarea1">
+                            <label class="ms-2" for="floatingInput">Date</label>
+                            <input type="date" name="timezone" class="form-control" id="floatingInput">
+                        </div><br>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Start Time</label>
-                    <textarea class="form-control" name="start_time" id="exampleFormControlTextarea1" value="{{ $epg->etime }}"></textarea>
+                    <label for="exampleFormControlInput1">Program Name</label>
+                    <input type="text" name="ename" class="form-control" id="exampleFormControlInput1" value="{{ $epg->ename }}">
                 </div>
-
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">End Time</label>
-                    <textarea class="form-control" name="end_time" id="exampleFormControlTextarea1" value="{{ $epg->ename }}"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Timezone</label>
-                    <textarea class="form-control" name="timezone" id="exampleFormControlTextarea1" value="{{ $epg->ename }}"></textarea>
+                    <label for="exampleFormControlInput1">Program Link</label>
+                    <input type="text" name="elink" class="form-control" id="exampleFormControlInput1" value="{{ $epg->elink }}">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Choose Image</label>

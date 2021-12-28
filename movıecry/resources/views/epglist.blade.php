@@ -72,134 +72,195 @@
         </div>
       </div>
 
-    <main role="main" style="padding: 4%" style="padding-bottom: 100%">
-        <div class="epg mt-3" data-component="epg" data-start="128">
-            <div class="epg-header">
-                <div class="wrapper" >
-                    <h1 class="title" style="color: rgb(201, 201, 0)" >Channel Guide</h1>
 
-                </div><!-- // Wrapper -->
-            </div><!-- // Header -->
-
-            <div class="epg-nav">
-                <div class="wrapper" >
-
-                    <form class="form form-search" style="background-color: transparent" >
-
-                    </form>
-
-                            <label for="search" class="label" style="background-color: transparent">
-                            <input style="background-color: transparent" id="search" name="search" class="input" placeholder="Search&hellip;" />
-                        </label>
-                        <button type="submit" class="btn"><span aria-hidden="true"></span></button>
-                    </form><!-- // Filters -->
-
-                    <div class="epg-nav-dates">
-
-                        <ol class="list list-dates" data-component="dates">
-                            <li class="today"><a href="index.html">Today</a><a href="index.html" class="toggle" data-action="toggle"><span class="icon fa fa-angle-down" aria-hidden="true"></span></a></li>
-                            <li><a href="index.html">Fri<span class="date">04/04</span></a></li>
-                            <li><a href="index.html">Sat<span class="date">05/04</span></a></li>
-                            <li><a href="index.html">Sun<span class="date">06/04</span></a></li>
-                            <li><a href="index.html">Mon<span class="date">07/04</span></a></li>
-                            <li><a href="index.html">Tue<span class="date">08/04</span></a></li>
-                            <li><a href="index.html">Wed<span class="date">09/04</span></a></li>
-                        </ol>
-                    </div><!-- // Dates -->
-                </div><!-- // Wrapper -->
-            </div><!-- // Nav -->
-
-            <div class="epg-contents" style="height: 20%">
-                <a href="index.html" class="control control-prev" style="height: 1100px" data-action="prev"><span class="icon fa fa-chevron-left" aria-hidden="true"></span></a>
-                <a href="index.html" class="control control-next" style="height: 1100px" data-action="next"><span class="icon fa fa-chevron-right" aria-hidden="true"></span></a>
-
-                <div class="epg-grid">
-                    <div class="epg-timeline">
-                        <ol class="list list-timeline">
-                            <li>00:00</li>
-                            <li>01:00</li>
-                            <li>02:00</li>
-                            <li>03:00</li>
-                            <li>04:00</li>
-                            <li>05:00</li>
-                            <li>06:00</li>
-                            <li>07:00</li>
-                            <li>08:00</li>
-                            <li>09:00</li>
-                            <li>10:00</li>
-                            <li>11:00</li>
-                            <li>12:00</li>
-                            <li>13:00</li>
-                            <li>14:00</li>
-                            <li>15:00</li>
-                            <li>16:00</li>
-                            <li>17:00</li>
-                            <li>18:00</li>
-                            <li>19:00</li>
-                            <li>20:00</li>
-                            <li>21:00</li>
-                            <li>22:00</li>
-                            <li>23:00</li>
-                        </ol>
-                    </div><!-- // Timeline -->
-
-                    <div class="epg-channels p-4" style="background-color: black">
-                                     @foreach ($epgs as $epg)
-                        <ol class="list list-channels" style="background-color: black">
-
-                            <li style="background-color: black">
-
-                                <a href="index.html" title="Channel 101" style="background-color: black">
-
-                                    <img style="background-color: black" src="{{asset('images')}}/{{ $epg->eimg }}" /><br><br>
-
-                                </a><br>
+<ul class="menu">
+               @foreach($epgs as $epg)
+      <li data-card="card-martin" class="martin selected"><img src="{{ asset('images') }}/{{ $epg->eimg }}" alt="image"></li>
+              @endforeach
+    </ul>
 
 
+    <ul id="box_area" class="start">
+                       @foreach($epgs as $epg)
+      <li class="block"></li>
+                    @endforeach
+    </ul>
 
-                            </li>
+    <section>
+      <article id="card-martin" class="card show-card">
+        <div class="card__inner">
+          <div class="card__photo"><img src="{{ asset('images') }}/{{ $epg->eimg }}" alt="image"></div>
+          <h1 class="card__name">{{ $epg->ename }}</h1>
+<div class="timeline-wrapper clearfix">
+    <div class="timeline-content-day">
+        <div class="timeline-line"></div>
+        <div class="timeline-content-item active" data-timeline="hour-8">
+            <span>8 AM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                        </ol>
-                                @endforeach
-                    </div><!-- // Channels -->
+        <div class="timeline-content-item" data-timeline="hour-9">
+            <span>9 AM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                                                                            @foreach ($epgs as $epg)
-                    <div class="epg-programmes" style="height: 90%">
+        <div class="timeline-content-item" data-timeline="hour-10">
+            <span>10 AM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                        <span class="epg-marker" title="01:47" style="left: 428px"></span>
-                        <!-- // Marker -->
+        <div class="timeline-content-item" data-timeline="hour-11">
+            <span>11 AM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                        <ol class="list list-programmes" style="height: 10%">
+        <div class="timeline-content-item" data-timeline="hour-12">
+            <span>12 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                            <li>
-                                <div class="programme">
+        <div class="timeline-content-item" data-timeline="hour-13">
+            <span>1 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                                    <a href="index.html">
+        <div class="timeline-content-item" data-timeline="hour-14">
+            <span>2 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                                        <h6 class="title">{{ $epg->channels_id }}</h6>
-                                        <p class="description">{{ $epg->start_time }}</p>
-                                        <p class="description">{{ $epg->end_time }}</p>
-                                        <p class="description">{{ $epg->timezone }}</p>
+        <div class="timeline-content-item" data-timeline="hour-15">
+            <span>3 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
+        <div class="timeline-content-item" data-timeline="hour-16">
+            <span>4 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                                    </a>
+        <div class="timeline-content-item" data-timeline="hour-17">
+            <span>5 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                                </div>
+        <div class="timeline-content-item" data-timeline="hour-18">
+            <span>6 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                            </li>
+        <div class="timeline-content-item" data-timeline="hour-19">
+            <span>7 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                            <!-- // Channel -->
-                        </ol>
+        <div class="timeline-content-item" data-timeline="hour-20">
+            <span>8 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-                    </div><!-- // Programmes -->
-@endforeach
-                </div><!-- // Grid -->
+        <div class="timeline-content-item" data-timeline="hour-21">
+            <span>9 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-            </div><!-- // Contents -->
+        <div class="timeline-content-item" data-timeline="hour-22">
+            <span>10 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
 
-        </div><!-- // EPG -->
+        <div class="timeline-content-item" data-timeline="hour-23">
+            <span>11 PM</span>
+            <div class="timeline-content-item-reveal">
+                <a href="#">
+                    <img src="https://picsum.photos/g/300/300">
+                    <span>Lorem Ipsum</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-    </main>
+        </div>
+      </div>
+        </div>
+      </article>
+    </section>
 
     <script src="js/jquery.js"></script>
     <script src="js/main.js"></script>

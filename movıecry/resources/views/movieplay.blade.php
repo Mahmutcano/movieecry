@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CryptoGuard</title>
+    <title>Astro Motion by TemplateMo</title>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/slick.css" type="text/css" />
     <link rel="stylesheet" href="css/templatemo-style.css">
-    <link rel="stylesheet" href="story.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/cleander.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/movie.css">
+    <link rel="stylesheet"  href="scss/cleander.scss">
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
 <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+<!--
 
+TemplateMo 560 Astro Motion
+
+https://templatemo.com/tm-560-astro-motion
+
+-->
 </head>
 <body>
   <video autoplay muted loop id="bg-video">
@@ -67,7 +77,7 @@
 
   <div class="netflix-slider">
 
-        <h1 style="color: rgb(156, 223, 0)"><i>Movie</i></h1>
+    <h2>Recently</h2>
 
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -90,7 +100,7 @@
                  </div>
                  <div class="vid_category">
                    <ul class="vid_list">
-                      <li>{{ $movie->genre }}</li>
+                      <li>{{ $movie->mcategory }}</li>
                     </ul>
                  </div>
                  <div class="down_arrow">
@@ -138,7 +148,8 @@
            <p><span>{{ $movie->mtime }}<span> "{{ $movie->mname }}"</p>
            <p class="video_text">{{ $movie->altdesc }}</p>
            <div class="other_links">
-             <span class="play"><i class="fa fa-play"></i> <a id="player" href="{{asset('videos')}}/{{ $movie->mvideo }}">PLAY</a></span>
+             <span class="play"><i class="fa fa-play"></i> <a href="#">PLAY</a></span>
+             <span class="mylist"><i class="fa fa-check"></i> <a href="#">Follow</a></span>
            </div>
         </div>
       </div>
@@ -154,7 +165,6 @@
     </div>
 
  @endforeach
-
 
 
   <script src="js/jquery-3.5.1.min.js"></script>
@@ -199,8 +209,6 @@
       },
     });
   </script>
-
-
 
 </body>
 </html>

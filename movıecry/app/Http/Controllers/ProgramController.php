@@ -38,10 +38,11 @@ class ProgramController extends Controller
     public function epgstore(Request $request)
     {
                 $request->validate([
-            'channels_id' => 'required',
             'start_time' => 'required',
             'end_time' => 'required',
             'timezone' => 'required',
+            'ename' => 'required',
+            'elink' => 'required',
             'image' => 'required|image|mimes:jpg,jpeg,png|max:4096'
         ]);
 
@@ -50,10 +51,11 @@ class ProgramController extends Controller
 
         Epg::create([
             'id' => $request->id,
-            'channels_id' => $request->channels_id,
             'start_time' => $request->start_time,
             'end_time' => $request->end_time,
             'timezone' => $request->timezone,
+            'ename' => $request->ename,
+            'elink' => $request->elink,
             'eimg' => $newImageEpgName,
             'user_id' => auth()->user()->id
         ]);
@@ -91,22 +93,24 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $ename)
     {
         $request->validate([
             'start_time' => 'required',
             'end_time' => 'required',
-            'timezone' => 'required'
+            'timezone' => 'required',
+            'ename' => 'required',
+            'elink' => 'required'
 
         ]);
 
-        $epg = Epg::where('id',$id)->first();
+        $epg = Epg::where('ename',$ename)->first();
 
         if ($request->hasFile('image')) {
             $request->validate([
                 'İmage' => 'required|image|mimes:jpg,jpeg,png|max:4096'
             ]);
-            $newImageEpgName = uniqid() . '-' . $request->id . '.' . $request->image->extension();
+            $newImageEpgName = uniqid() . '-' . $request->ename . '.' . $request->image->extension();
             $request->image->move(public_path('images'), $newImageEpgName);
             $epg->cimg = $newImageEpgName;
         }
@@ -115,6 +119,8 @@ class ProgramController extends Controller
         $epg->start_time = $request->start_time;
         $epg->end_time = $request->end_time;
         $epg->timezone = $request->timezone;
+        $epg->ename = $request->ename;
+        $epg->elink = $request->elink;
         $epg->user_id = auth()->user()->id;
         $epg->update();
 
@@ -127,7 +133,7 @@ class ProgramController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function edestroy($id)
     {
         $epg = Epg::where('id',$id)->first();
         $epg->delete();
